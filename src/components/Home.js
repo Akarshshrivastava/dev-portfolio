@@ -10,6 +10,7 @@ import {
 import { Layout } from "../styles";
 
 import HeroImage from "../assets/hero-image.png";
+import Wave from "./Wave";
 
 const Home = () => {
   return (
@@ -56,15 +57,18 @@ const Home = () => {
       <div className="hero-image">
         <img src={HeroImage} alt="hero-illus" />
       </div>
+      <Wave />
     </StyledHome>
   );
 };
 const StyledHome = styled(Layout)`
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  height: 88vh;
+  margin-top: 10vh;
+  min-height: 90vh;
   .hero-text {
     display: flex;
     flex-direction: column;
@@ -91,18 +95,6 @@ const StyledHome = styled(Layout)`
       animation: animate 5s linear infinite;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      /* background-image: -webkit-linear-gradient(92deg, #f35626, #feab3a);
-	    
-	    
-	    -webkit-animation: hue 10s infinite linear;
-      @-webkit-keyframes hue {
-        from {
-          -webkit-filter: hue-rotate(0deg);
-        }
-        to {
-          -webkit-filter: hue-rotate(-360deg);
-        }
-      } */
     }
     @keyframes animate {
       0% {
@@ -117,10 +109,10 @@ const StyledHome = styled(Layout)`
     }
 
     .desc-text {
-      font-size: 1.2rem;
+      font-size: 22px;
       font-weight: 300;
       line-height: 1.5;
-      margin: 2.2rem 0;
+      margin: 2rem 0;
     }
     .socials-container {
       display: flex;
@@ -140,8 +132,81 @@ const StyledHome = styled(Layout)`
     justify-content: flex-end;
     width: 100%;
     height: 100%;
+    z-index: 99;
     img {
       width: 22rem;
+    }
+  }
+  @media (max-width: 1024px) {
+    .hero-text {
+      .greet-text {
+        font-size: 1.2rem;
+        margin-bottom: 0.6rem;
+      }
+      .name-text {
+        margin: 0.2rem 0;
+      }
+      .desc-text {
+        font-size: 18px;
+        font-weight: 300;
+        line-height: 1.8rem;
+        margin: 1.5rem 0;
+      }
+    }
+    .hero-image {
+      img {
+        width: 18rem;
+      }
+    }
+  }
+  @media (max-width: 768px) {
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+    .hero-text {
+      justify-content: center;
+      align-items: center;
+      .greet-text {
+        display: none;
+      }
+      .name-text {
+        margin: 0.2rem 0;
+        text-align: center;
+      }
+      h2.title-text {
+        text-align: center;
+      }
+      .desc-text {
+        width: 70%;
+        text-align: center;
+        font-size: 18px;
+        font-weight: 300;
+        line-height: 1.8rem;
+        margin: 1.5rem 0;
+      }
+      .socials-container {
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        a {
+          margin: 0 2rem;
+        }
+      }
+    }
+    .hero-image {
+      justify-content: center;
+      align-items: center;
+      img {
+        width: 14rem;
+      }
+    }
+  }
+  @media (max-width: 480px) {
+    .hero-text {
+      .desc-text {
+        width: 90%;
+        text-align: justify;
+      }
     }
   }
 `;

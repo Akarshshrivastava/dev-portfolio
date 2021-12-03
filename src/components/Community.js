@@ -18,7 +18,7 @@ const Community = () => {
                 <img src={tutorial.thumbnail} alt="thumbnail" />
               </div>
               <div className="video-info">
-                <h3>{tutorial.title}</h3>
+                <h5>{tutorial.title}</h5>
                 <a
                   href={tutorial.link}
                   target="_blank"
@@ -39,72 +39,96 @@ const StyledCommunity = styled(Layout)`
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  min-height: 90vh;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+
+  h2 {
+    margin: 0.5rem 0;
+    background: linear-gradient(
+      135deg,
+      #5335cf 0%,
+      #de005e 25%,
+      #f66e48 50%,
+      #de005e 75%,
+      #5335cf 100%
+    );
+    background-size: 400%;
+    animation: animate 5s linear infinite;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  p {
+    margin: 1rem 0;
+    text-align: center;
+  }
   .video-container {
-    /* display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    width: 100%;
-    height: auto; */
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 50px;
+    padding: 1.5rem 0;
+
     @media (max-width: 1024px) {
       grid-template-columns: repeat(2, 1fr);
     }
+    @media (max-width: 768px) {
+      grid-gap: 20px;
+    }
+
     @media (max-width: 576px) {
       grid-template-columns: repeat(1, 1fr);
+      width: 80%;
+      height: auto;
+    }
+    @media (max-width: 480px) {
+      width:100%;
     }
     .video-card {
       width: auto;
-      height: 320px;
-      background: blue;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      padding: 12px 10px;
+      align-items: center;
+      height: auto;
+      background: var(--dark-secondary);
       border-radius: 6px;
+      border: 1px solid var(--dark-border);
       .video-thumbnail {
         width: auto;
         height: auto;
         img {
+          border-radius: 4px;
           width: 100%;
           height: 100%;
         }
       }
       .video-info {
+        display: flex;
+        flex-direction: column;
+        align-items: left;
+        justify-content: space-between;
+        height: 100%;
+        width: 100%;
+        h5 {
+          margin: 20px 0 20px 0;
+        }
         a {
+          display: inline-block;
           width: 100%;
           cursor: pointer;
           color: #fff;
           text-decoration: none;
-          font-size: 1.2rem;
-          padding: 10px;
+          text-align: center;
+          padding: 12px;
+          background: var(--dark-secondary);
+          border: 1px solid var(--dark-border);
           border-radius: 6px;
-          background: #00bcd4;
-          transition: all 0.3s ease-in-out;
+          transition: all 0.1s ease-in-out;
           &:hover {
-            background: #00acc1;
+            border: 1px solid var(--dark-border-hover);
           }
         }
-        /* .video-player {
-      padding-top: 56.25%; // Percentage ratio for 16:9
-      position: relative; // Set to relative
-      width: 100%; // Reset width
-      height: 100%; // Reset height
-    }
-
-    .video-player > div {
-      position: absolute; // Scaling will occur since parent is relative now
-      top: 0; // Set to 0
-      left: 0; // Set to 0
-      width: 100%;
-      height: 100%;
-    } */
-
-        /* .video-player {
-      width: 240px;
-      object-fit: cover;
-      height: 202px;
-      object-fit: cover;
-      margin: 2.5rem 0;
-    } */
       }
     }
   }

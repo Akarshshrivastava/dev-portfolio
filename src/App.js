@@ -1,4 +1,5 @@
 import Community from "./components/Community";
+import Contact from "./components/Contact";
 import GlobalStyle from "./components/GlobalStyle";
 import Home from "./components/Home";
 import Nav from "./components/Nav";
@@ -12,6 +13,7 @@ function App() {
       <Home />
       <Projects />
       <Community />
+      <Contact />
     </div>
   );
 }

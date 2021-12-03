@@ -12,4 +12,5 @@ export const tutorialsData = [
     link: "https://youtu.be/0ilorTG3GL0?t=12",
     thumbnail: Darkmode,
   },
+  
 ];
