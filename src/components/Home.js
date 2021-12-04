@@ -46,7 +46,7 @@ const Home = () => {
             <FontAwesomeIcon icon={faLinkedin} className="social-icon" />
           </a>
           <a
-            href="https://twitter.com/akarshshrivast"
+            href="https://twitter.com/akarshshrivastv"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -67,7 +67,6 @@ const StyledHome = styled(Layout)`
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  margin-top: 10vh;
   min-height: 90vh;
   .hero-text {
     display: flex;
@@ -107,7 +106,9 @@ const StyledHome = styled(Layout)`
         background-position: 0% 50%;
       }
     }
-
+    .title-text {
+      color: #dfdfdf !important;
+    }
     .desc-text {
       font-size: 22px;
       font-weight: 300;
@@ -203,9 +204,13 @@ const StyledHome = styled(Layout)`
   }
   @media (max-width: 480px) {
     .hero-text {
+      .title-text {
+        margin: 8px 0 5px 0;
+      }
       .desc-text {
         width: 90%;
         text-align: justify;
+        margin: 1rem 0;
       }
     }
   }

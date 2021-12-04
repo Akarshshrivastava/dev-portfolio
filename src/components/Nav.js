@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Icon from "../assets/icon.gif";
 import { Layout } from "../styles";
@@ -6,31 +6,33 @@ import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Nav = () => {
+  const [open, setOpen] = useState(false);
   return (
-    <NavStyled>
-      <a href="/" id="logo">
-        <img src={Icon} alt="logo" />
-      </a>
-      <ul className="nav-links">
-        <li>
-          <a href="/">Projects</a>
-        </li>
-        <li>
-          <a href="/about">Tutorials</a>
-        </li>
-        <li>
-          <a href="/contact">Contact</a>
-        </li>
-      </ul>
-      <div className="menu-btn">
-        <FontAwesomeIcon icon={faBars} />
-      </div>
-    </NavStyled>
+    <nav className="navbar">
+      <NavStyled>
+        <a href="/" id="logo">
+          <img src={Icon} alt="logo" />
+        </a>
+        <ul className={`nav-links ${open ? " open" : ""}`}>
+          <li>
+            <a href="/">Projects</a>
+          </li>
+          <li>
+            <a href="/about">Tutorials</a>
+          </li>
+          <li>
+            <a href="/contact">Contact</a>
+          </li>
+        </ul>
+        <div className="menu-btn" onClick={() => setOpen(!open)}>
+          <FontAwesomeIcon icon={faBars} />
+        </div>
+      </NavStyled>
+    </nav>
   );
 };
 const NavStyled = styled(Layout)`
   min-height: 10vh;
-  position: absolute;
   z-index: 99;
   top: 0;
   overflow-x: hidden;
@@ -68,19 +70,21 @@ const NavStyled = styled(Layout)`
       display: block;
     }
     .nav-links {
+      display: none;
+      transition: all 0.2s ease;
+    }
+    .nav-links.open {
       position: absolute;
-      left: 0;
+      right: 0;
       top: 10vh;
       z-index: 100;
-      height: 24vh;
-      /* top: 10vh; */
-      background: rgba(1, 1, 245, 0.589);
+      height: 100vh;
+      background: var(--dark-secondary);
       display: flex;
-      /* flex-direction: column; */
+      flex-direction: column;
       align-items: center;
-      justify-content: ce;
-      width: 100%;
-      /* transform: translateX(100%); */
+      justify-content: space-evenly;
+      width: 50%;
     }
   }
 `;

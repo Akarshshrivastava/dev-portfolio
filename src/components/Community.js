@@ -18,7 +18,7 @@ const Community = () => {
                 <img src={tutorial.thumbnail} alt="thumbnail" />
               </div>
               <div className="video-info">
-                <h5>{tutorial.title}</h5>
+                <h3>{tutorial.title}</h3>
                 <a
                   href={tutorial.link}
                   target="_blank"
@@ -42,21 +42,8 @@ const StyledCommunity = styled(Layout)`
   min-height: 90vh;
   padding-top: 3rem;
   padding-bottom: 3rem;
-
   h2 {
     margin: 0.5rem 0;
-    background: linear-gradient(
-      135deg,
-      #5335cf 0%,
-      #de005e 25%,
-      #f66e48 50%,
-      #de005e 75%,
-      #5335cf 100%
-    );
-    background-size: 400%;
-    animation: animate 5s linear infinite;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
   }
   p {
     margin: 1rem 0;
@@ -67,6 +54,18 @@ const StyledCommunity = styled(Layout)`
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 50px;
     padding: 1.5rem 0;
+    .video-card {
+      .video-info {
+        /* p {
+          font-size: 20px;
+          text-align: left;
+        } */
+        h3{
+          margin: 1.5rem 0;
+          font-size: 20px !important;
+        }
+      }
+    }
 
     @media (max-width: 1024px) {
       grid-template-columns: repeat(2, 1fr);
@@ -81,7 +80,7 @@ const StyledCommunity = styled(Layout)`
       height: auto;
     }
     @media (max-width: 480px) {
-      width:100%;
+      width: 100%;
     }
     .video-card {
       width: auto;
