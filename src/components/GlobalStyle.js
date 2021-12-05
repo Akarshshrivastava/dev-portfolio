@@ -63,7 +63,7 @@ const GlobalStyle = createGlobalStyle`
         font-size: 24px;
     }
     h3{
-        font-size: 24px;
+        font-size: 22px;
         font-weight: 500;
     }
     h4{
@@ -76,13 +76,16 @@ const GlobalStyle = createGlobalStyle`
     }
     p{
         font-size: 18px;
-        font-weight: 300;
+        font-weight: 400;
         line-height: 1.5;
     }
     @media (max-width: 480px) {
         h3{
             font-size: 20px;
             font-weight: 500;
+        }
+        p{
+            font-weight: 400;
         }
     }
 

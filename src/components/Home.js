@@ -8,9 +8,10 @@ import {
   faInstagram,
 } from "@fortawesome/free-brands-svg-icons";
 import { Layout } from "../styles";
-
 import HeroImage from "../assets/hero-image.png";
 import Wave from "./Wave";
+// import { motion } from "framer-motion";
+// import { titleAnim } from "../animation";
 
 const Home = () => {
   return (
@@ -111,7 +112,7 @@ const StyledHome = styled(Layout)`
     }
     .desc-text {
       font-size: 22px;
-      font-weight: 300;
+      font-weight: 400;
       line-height: 1.5;
       margin: 2rem 0;
     }

@@ -4,7 +4,7 @@ import Icon from "../assets/icon.gif";
 import { Layout } from "../styles";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
+import { Link } from "react-scroll";
 const Nav = () => {
   const [open, setOpen] = useState(false);
   return (
@@ -15,13 +15,15 @@ const Nav = () => {
         </a>
         <ul className={`nav-links ${open ? " open" : ""}`}>
           <li>
-            <a href="/">Projects</a>
+            <Link activeClass="active" to="projects" spy={true} smooth={true}>
+              Projects
+            </Link>
           </li>
           <li>
-            <a href="/about">Tutorials</a>
+            <Link activeClass="active" to="tutorials" spy={true} smooth={true}>Tutorials</Link>
           </li>
           <li>
-            <a href="/contact">Contact</a>
+            <Link activeClass="active" to="contact" spy={true} smooth={true}>Contact</Link>
           </li>
         </ul>
         <div className="menu-btn" onClick={() => setOpen(!open)}>
@@ -56,10 +58,12 @@ const NavStyled = styled(Layout)`
     justify-content: space-between;
     width: 20rem;
     li {
-      a {
-        font-size: 1.1rem;
-        font-weight: 500;
-      }
+      font-size: 1.1rem;
+      font-weight: 500;
+      cursor: pointer;
+      /* a {
+        
+      } */
     }
   }
   .menu-btn {
@@ -83,8 +87,11 @@ const NavStyled = styled(Layout)`
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: space-evenly;
+      justify-content: center;
       width: 50%;
+      li{
+        margin: 3rem 0;
+      }
     }
   }
 `;

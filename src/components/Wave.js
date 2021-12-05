@@ -14,9 +14,9 @@ const Wave = () => {
         animate={{ pathLength: 1, pathOffset: 0 }}
         transition={{ duration: 1, ease: "easeInOut" }}
         d="M2 5C175.493 75.1387 618.241 322.108 1027.38 183.448C1436.52 44.788 1794.27 69.9778 1922 99.9052"
-        stroke="#0d1117"
-        strokeOpacity="1"
-        strokeWidth="7"
+        stroke="#58A6FF"
+        strokeOpacity="0.2"
+        strokeWidth="5"
       />
     </WaveSvg>
   );
@@ -26,9 +26,10 @@ export default Wave;
 
 const WaveSvg = styled.svg`
   position: absolute;
-  bottom: 2.5rem;
+  bottom: 1.5rem;
   left: 0;
-  z-index: 1;
+  z-index: -1;
+  pointer-events: none;
   @media (max-width: 992px) {
     display: none;
   }

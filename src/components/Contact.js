@@ -11,7 +11,7 @@ import { Layout } from "../styles";
 
 const Contact = () => {
   return (
-    <StyledContact>
+    <StyledContact id="contact">
       <h2>Get In Touch</h2>
       <p>Let's connect & bring your ideas to life.</p>
       <div className="contact-container">
@@ -87,6 +87,8 @@ const StyledContact = styled(Layout)`
         animation: animate 5s linear infinite;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
+        font-size: 32px;
+        font-weight: 600 !important;
       }
     }
     .socials-container {
@@ -121,6 +123,8 @@ const StyledContact = styled(Layout)`
         h3 {
           display: flex;
           justify-content: center;
+          font-size: 28px;
+          font-weight: 600 !important;
         }
       }
       .socials-container {

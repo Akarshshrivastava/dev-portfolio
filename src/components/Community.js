@@ -6,7 +6,7 @@ import { tutorialsData } from "../data/tutorials-data";
 
 const Community = () => {
   return (
-    <StyledCommunity>
+    <StyledCommunity id="tutorials">
       <h2>Tutorials</h2>
       <p>Giving back to the community is what I like the most.</p>
       <div className="line"></div>
@@ -56,11 +56,7 @@ const StyledCommunity = styled(Layout)`
     padding: 1.5rem 0;
     .video-card {
       .video-info {
-        /* p {
-          font-size: 20px;
-          text-align: left;
-        } */
-        h3{
+        h3 {
           margin: 1.5rem 0;
           font-size: 20px !important;
         }
@@ -109,8 +105,9 @@ const StyledCommunity = styled(Layout)`
         justify-content: space-between;
         height: 100%;
         width: 100%;
-        h5 {
+        h3 {
           margin: 20px 0 20px 0;
+          font-size: 18px !important;
         }
         a {
           display: inline-block;

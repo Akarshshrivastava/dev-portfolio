@@ -8,7 +8,7 @@ import { projectsData } from "../data/projects-data";
 
 const Projects = () => {
   return (
-    <StyledProjects>
+    <StyledProjects id="projects">
       <h2>Projects</h2>
       <p>I love to create & experiment. Here are some of my projects.</p>
       <div className="line"></div>
