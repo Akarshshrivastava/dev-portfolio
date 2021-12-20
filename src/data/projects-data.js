@@ -13,7 +13,7 @@ export const projectsData = [
   {
     title: "Waves Music",
     technology: "ReactJS",
-    projectLink: "https://bo6pn.csb.app/",
+    projectLink: "hhttps://wavesmusicplayerapp.netlify.app/",
     githubLink: "https://github.com/Akarshshrivastava/Waves-music-app",
     imgSrc: WavesMusic,
   },
