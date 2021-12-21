@@ -1,6 +1,6 @@
 import ManageitImg from "../assets/project-assets/money-app.png";
 import WavesMusic from "../assets/project-assets/waves-music.png";
-import CapturePortfolio from "../assets/project-assets/capture-portfolio.png";
+// import CapturePortfolio from "../assets/project-assets/capture-portfolio.png";
 import NetflixClone from '../assets/project-assets/netflix-clone.png';
 
 export const projectsData = [
@@ -25,12 +25,12 @@ export const projectsData = [
     githubLink: "https://github.com/Akarshshrivastava/Waves-music-app",
     imgSrc: WavesMusic,
   },
-  {
-    title: "Capture Portfolio",
-    technology: "React Framer-Motion",
-    projectLink: "https://4nxvz.csb.app/",
-    githubLink: "https://github.com/Akarshshrivastava/capture-portfolio",
-    imgSrc: CapturePortfolio,
-  },
+  // {
+  //   title: "Capture Portfolio",
+  //   technology: "React Framer-Motion",
+  //   projectLink: "https://4nxvz.csb.app/",
+  //   githubLink: "https://github.com/Akarshshrivastava/capture-portfolio",
+  //   imgSrc: CapturePortfolio,
+  // },
   
 ];
