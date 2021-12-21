@@ -13,7 +13,7 @@ export const projectsData = [
   },
   {
     title: "Netflix Clone",
-    technology: "React Redux",
+    technology: "React Redux Firebase",
     projectLink: "https://netflix-clone-b9189.web.app/",
     githubLink: "https://github.com/Akarshshrivastava/netflix-clone",
     imgSrc: NetflixClone,
