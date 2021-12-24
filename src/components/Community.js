@@ -6,7 +6,6 @@ import { db } from "../firebase";
 
 const Community = () => {
   const [tutorials, setTutorials] = useState([]);
-
   useEffect(() => {
     getDocs(collection(db, "tutorials"))
       .then((querySnapshot) => {

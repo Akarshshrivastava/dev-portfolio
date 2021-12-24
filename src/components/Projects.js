@@ -9,16 +9,6 @@ import { getDocs, collection } from "@firebase/firestore";
 
 const Projects = () => {
   const [projects, setProjects] = useState([]);
-  // const projectsCollectionRef = collection(db, "projects");
-
-  // useEffect(() => {
-  //   const getProjects = async () => {
-  //     const data = await getDocs(projectsCollectionRef);
-  //     setProjects(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-  //     console.log(projects);
-  //   };
-  //   getProjects();
-  // }, [projectsCollectionRef, projects]);
   useEffect(() => {
     getDocs(collection(db, "projects"))
       .then((querySnapshot) => {
@@ -35,7 +25,6 @@ const Projects = () => {
         console.log(error);
       });
   }, []);
-  console.log(projects);
   return (
     <StyledProjects id="projects">
       <h2>Projects</h2>
