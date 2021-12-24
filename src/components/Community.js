@@ -1,17 +1,35 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-// import ReactPlayer from "react-player";
 import { Layout } from "../styles";
-import { tutorialsData } from "../data/tutorials-data";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../firebase";
 
 const Community = () => {
+  const [tutorials, setTutorials] = useState([]);
+
+  useEffect(() => {
+    getDocs(collection(db, "tutorials"))
+      .then((querySnapshot) => {
+        const tutorials = [];
+        querySnapshot.forEach((doc) => {
+          tutorials.push({
+            id: doc.id,
+            ...doc.data(),
+          });
+        });
+        setTutorials(tutorials);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
   return (
     <StyledCommunity id="tutorials">
       <h2>Tutorials</h2>
       <p>Giving back to the community is what I like the most.</p>
       <div className="line"></div>
       <div className="video-container">
-        {tutorialsData.map((tutorial) => {
+        {tutorials.map((tutorial) => {
           return (
             <div className="video-card">
               <div className="video-thumbnail">

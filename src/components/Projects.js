@@ -1,30 +1,59 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Layout } from "../styles";
 import { faShareSquare } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { projectsData } from "../data/projects-data";
+import { db } from "../firebase";
+import { getDocs, collection } from "@firebase/firestore";
 
 const Projects = () => {
+  const [projects, setProjects] = useState([]);
+  // const projectsCollectionRef = collection(db, "projects");
+
+  // useEffect(() => {
+  //   const getProjects = async () => {
+  //     const data = await getDocs(projectsCollectionRef);
+  //     setProjects(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+  //     console.log(projects);
+  //   };
+  //   getProjects();
+  // }, [projectsCollectionRef, projects]);
+  useEffect(() => {
+    getDocs(collection(db, "projects"))
+      .then((querySnapshot) => {
+        const projects = [];
+        querySnapshot.forEach((doc) => {
+          projects.push({
+            id: doc.id,
+            ...doc.data(),
+          });
+        });
+        setProjects(projects);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+  console.log(projects);
   return (
     <StyledProjects id="projects">
       <h2>Projects</h2>
       <p>I love to create & experiment. Here are some of my projects.</p>
       <div className="line"></div>
       <div className="project-container">
-        {projectsData.map((project) => {
+        {projects.map((project) => {
           return (
             <div className="project-card glowing">
               <div className="project-image">
-                <img src={project.imgSrc} alt="project-display" />
+                <img src={project.image} alt="project-display" />
               </div>
               <div className="project-info">
                 <h3>{project.title}</h3>
                 <p>{project.technology}</p>
                 <div className="project-links">
                   <a
-                    href={project["projectLink"]}
+                    href={project.projectLink}
                     className="visit-link"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -33,7 +62,7 @@ const Projects = () => {
                     &nbsp;Visit
                   </a>
                   <a
-                    href={project["githubLink"]}
+                    href={project.sourceLink}
                     className="source-link"
                     target="_blank"
                     rel="noopener noreferrer"
